@@ -5,18 +5,18 @@ Developer portals with multiple api gateways. No vendor lock-in. Enjoy the freed
 
 ## Scope
 
-- **Type:** Index 
-- **Position:** Consuming 
-- **Access:** 3rd-Party 
+- **Type:** Index
+- **Position:** Consumer
+- **Access:** 3rd-Party
 
 ## Tags:
 
- - Portals, Platform
+ - Platform, Portals
 
 ## Timestamps
 
-- **Created:** 2025-01-08 
-- **Modified:** 2025-01-13 
+- **Created:** 2025-01-08
+- **Modified:** 2026-04-28
 
 ## APIs
 
@@ -25,10 +25,6 @@ Developer portals with multiple api gateways. No vendor lock-in. Enjoy the freed
 
 **Human URL:** [https://pronovix.com/](https://pronovix.com/)
 
-
-#### Tags:
-
- - API
 
 #### Properties
 
