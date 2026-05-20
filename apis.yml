@@ -1,6 +1,11 @@
 aid: pronovix
 url: >-
   https://raw.githubusercontent.com/api-evangelist/pronovix/refs/heads/main/apis.yml
+common:
+  - type: GitHubOrganization
+    url: https://github.com/Pronovix
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/pronovix
 apis:
   - aid: pronovix:pronovix
     name: Pronovix
