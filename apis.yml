@@ -2,6 +2,8 @@ aid: pronovix
 url: >-
   https://raw.githubusercontent.com/api-evangelist/pronovix/refs/heads/main/apis.yml
 common:
+  - type: DomainSecurity
+    url: security/pronovix-domain-security.yml
   - type: GitHubOrganization
     url: https://github.com/Pronovix
   - type: LinkedIn
