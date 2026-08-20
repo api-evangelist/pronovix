@@ -23,6 +23,9 @@ apis:
 name: Pronovix
 tags:
   - Platform
+  - Portal
+tags_raw:
+  - Platform
   - Portals
 type: Index
 accessModel:
