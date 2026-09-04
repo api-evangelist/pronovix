@@ -55,7 +55,7 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/pronovix.p
 access: 3rd-Party
 created: '2025-01-08'
 modified: '2026-04-28'
-position: Consumer
+position: Consuming
 description: >-
   Developer portals with multiple api gateways. No vendor lock-in. Enjoy the
   freedom of an open source developer portal that can connect to many API
