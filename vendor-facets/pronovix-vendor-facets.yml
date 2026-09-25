@@ -1,0 +1,233 @@
+# Vendor facets — Pronovix. Builds Drupal-based developer portals (Zero Gravity, and portals for
+# Apigee and Azure API Management) as a services firm. The headline: a full set of server-rendered
+# portal pointers, sign-up and key management through the gateway, and an llms.txt module the
+# provider configures, open-sourced as a Drupal recipe. It cannot touch the contract, SDKs or MCP.
+vendor: pronovix
+name: Pronovix
+website: https://pronovix.com
+areas:
+- developer-portal
+registry_keys:
+- pronovix
+rubric_schema_version: 0.22.0
+generated: '2026-09-25'
+features_refreshed: '2026-09-25'
+basis: capability
+summary: >-
+  A Pronovix portal is a Drupal site the provider owns, so what it publishes is on the provider's own
+  surface: API catalog, OpenAPI reference with "try it out", release notes, a blog and gateway key management.
+  Each scores once declared in apis.yml. Sign-up counts only where the portal fronts a gateway (Apigee,
+  Azure) that issues keys. The llms.txt module has sections and a header the provider edits, which makes
+  it first-party. Markdownify adds .md twins that no check reads. Pronovix renders the contract and cannot
+  improve it; SDKs, CLIs and MCP servers are out of reach.
+features:
+- id: zero-gravity-portal
+  name: Zero Gravity developer portal
+  description: >-
+    A Drupal portal with an API catalog, OpenAPI reference and code visualisation, "try it out", site
+    search, release notes, blog, FAQ, localisation and docs-as-code workflows.
+  source: https://pronovix.com/developer-portals
+  tier: paid
+- id: gateway-key-management
+  name: Gateway-integrated app and key management
+  description: API key and app management through Apigee (and Azure API Management) from the portal.
+  source: https://pronovix.com/developer-portals
+  tier: paid
+- id: apigee-portal
+  name: Apigee developer portal
+  description: >-
+    A Google Cloud partner portal adding app-approval workflows, granular access control and monetisation
+    documentation to Apigee.
+  source: https://pronovix.com/apigee-developer-portals
+  tier: paid
+- id: llms-txt-recipe
+  name: llms.txt Drupal module and LLM Support recipe
+  description: >-
+    An open-sourced llms_txt module with an editable header and sections, served at /llms.txt, bundled
+    with Markdownify in a Drupal recipe (June 2025).
+  source: https://pronovix.com/articles/make-your-developer-portal-ready-ai-agents
+  tier: open-source
+- id: markdownify
+  name: Markdownify
+  description: Serves each page as Markdown at a .md URL, and inlines attached OpenAPI files as code blocks.
+  source: https://pronovix.com/articles/make-your-developer-portal-ready-ai-agents
+  tier: open-source
+maps:
+- feature: zero-gravity-portal
+  check: portal_present
+  layer: composite
+  provider_must: Declare the portal as a DeveloperPortal entry in apis.yml.
+  catalog_pass_rate: 0.228
+  facet: developer_ergonomics
+  points: 4
+  baseline_pass_rate: 0.633
+- feature: zero-gravity-portal
+  check: documentation_present
+  layer: composite
+  provider_must: Declare the docs section as a Documentation entry.
+  catalog_pass_rate: 0.453
+  facet: developer_ergonomics
+  points: 4
+  baseline_pass_rate: 0.95
+  saturated: true
+  saturated_note: >-
+    95% of providers with a contract, docs and a reference already earn this; the vendor cannot move it
+    for most of its buyers.
+- feature: zero-gravity-portal
+  check: api_reference_present
+  layer: composite
+  provider_must: Declare the rendered OpenAPI reference as an APIReference entry.
+  catalog_pass_rate: 0.222
+  facet: developer_ergonomics
+  points: 3
+  baseline_pass_rate: 0.942
+  saturated: true
+  saturated_note: >-
+    94% of providers with a contract, docs and a reference already earn this; the vendor cannot move it
+    for most of its buyers.
+- feature: zero-gravity-portal
+  check: console_or_sandbox
+  layer: composite
+  provider_must: Declare the "try it out" console as a Console entry.
+  catalog_pass_rate: 0.089
+  facet: developer_ergonomics
+  points: 3
+  baseline_pass_rate: 0.332
+- feature: zero-gravity-portal
+  check: change_log_present
+  layer: composite
+  provider_must: Maintain the release notes and declare them as a ChangeLog entry.
+  catalog_pass_rate: 0.157
+  facet: operational_transparency
+  points: 6
+  baseline_pass_rate: 0.438
+- feature: zero-gravity-portal
+  check: blog_present
+  layer: composite
+  provider_must: Declare the portal blog as a Blog entry.
+  catalog_pass_rate: 0.529
+  facet: developer_ergonomics
+  points: 1
+  baseline_pass_rate: 0.731
+- feature: gateway-key-management
+  check: sign_up_present
+  layer: composite
+  conditional: true
+  condition: >-
+    Only where the portal fronts a gateway (Apigee, Azure API Management) that issues keys. The portal
+    is the front door; the gateway does the registration.
+  provider_must: Declare the registration page as a SignUp entry.
+  catalog_pass_rate: 0.19
+  facet: access_clarity
+  points: 5
+  baseline_pass_rate: 0.463
+- feature: llms-txt-recipe
+  check: llms_txt_published
+  layer: composite
+  credit: 1.0
+  provider_must: Install the recipe, write the llms.txt sections and serve them from the portal root.
+  note: >-
+    The provider edits the header and sections and the file is served on its own Drupal site, so it is
+    first-party.
+  catalog_pass_rate: 0.351
+  facet: discoverability
+  points: 4
+  baseline_pass_rate: 0.65
+earns_nothing:
+- feature: markdownify
+  check: examples_present
+  why: Inlining an attached OpenAPI into Markdown republishes the contract. It adds no examples to it.
+- feature: zero-gravity-portal
+  check: contract_present
+  why: The portal renders a contract the provider already has. It creates none.
+out_of_reach:
+  checks:
+  - sdk_count_1
+  - sdk_count_3
+  - cli_present
+  - mcp_server
+  - agent_skills
+  - agent_skill_present
+  - overlay_published
+  - status_page_present
+  - rate_limits_documented
+  - spec_presence
+  note: >-
+    Pronovix builds and runs portals. It generates no SDK, CLI, MCP server or skill, and does not edit
+    the contract.
+unscored_practice:
+- feature: markdownify
+  why: Per-page .md twins with the OpenAPI inlined are agent-facing practice that no check reads.
+surface:
+  discoverability:
+    reachable: 4.0
+    total: 54
+  operational_transparency:
+    reachable: 6.0
+    total: 38
+  developer_ergonomics:
+    reachable: 15.0
+    total: 42
+  access_clarity:
+    reachable: 5.0
+    total: 38
+  agent_readiness:
+    reachable: 0
+    total: 139
+hard_rule: >-
+  A model, not a score. Adopting this vendor changes a provider's Kin Score only when the provider publishes
+  the resulting artifacts on its own surface; nothing here writes a score, and no sponsorship or partnership
+  can.
+method: searched
+source:
+- https://pronovix.com/apigee-developer-portals
+- https://pronovix.com/articles/make-your-developer-portal-ready-ai-agents
+- https://pronovix.com/developer-portals
+measured:
+  cohort:
+    method: vendors-catalog.json detections (CNAME / header / URL shape / markup), never a name match
+    detected: 0
+    in_baseline: 0
+  control:
+    basis: providers earning contract_present + documentation_present + api_reference_present, minus the
+      cohort
+    n: 5216
+  metric: >-
+    cohort_pct / control_pct = mean share of the check's points earned (derived and platform credit weighted),
+    x100
+  measured_on: '2026-09-25'
+  status: 'not measurable: 0 detected customers clear the baseline (need 20)'
+simulation:
+  simulated_on: '2026-09-25'
+  rubric: 0.23.0
+  population: providers publishing a contract (contract_present earned), replayable exactly
+  providers: 8977
+  providers_unreplayable: 987
+  providers_moved: 8508
+  conditional_rows: excluded (they depend on what the API already does)
+  composite_lift:
+    median: 4.9
+    p75: 6.6
+    p90: 8.0
+    max: 10.0
+    mean_among_movers: 5.0
+  agent_readiness_lift:
+    median: 0.0
+    p75: 0.0
+    p90: 0.0
+    max: 0.0
+    mean_among_movers: 0.0
+  facet_lift_median_among_movers:
+    discoverability: 7.4
+    operational_transparency: 15.8
+    developer_ergonomics: 16.7
+  composite_band_moves:
+    thin -> developing: 1930
+    developing -> strong: 755
+    emerging -> thin: 388
+    strong -> exemplar: 143
+    minimal -> emerging: 3
+  agent_readiness_band_moves: {}
+  method: >-
+    each provider's own kin/checks file, the vendor's maps at their stated credit, the scorer's composite
+    formula; from -> to, nothing written

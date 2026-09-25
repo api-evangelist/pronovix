@@ -1,6 +1,8 @@
 aid: pronovix
 url: https://raw.githubusercontent.com/api-evangelist/pronovix/refs/heads/main/apis.yml
 common:
+- type: VendorFacets
+  url: vendor-facets/pronovix-vendor-facets.yml
 - type: Website
   url: https://pronovix.com
 - type: DomainSecurity
