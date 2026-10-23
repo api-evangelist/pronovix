@@ -9,8 +9,8 @@
       "method": "feed"
     }
   ],
-  "fetched": "2026-10-10T13:15:00Z",
-  "post_count": 10,
+  "fetched": "2026-10-17T14:53:57Z",
+  "post_count": 18,
   "note": "blogs/ already populated from a prior pull; no Blog-type source registered in apis.yml and no new discovery performed this run",
   "feed_nature": "undetermined",
   "feed_nature_basis": null,
